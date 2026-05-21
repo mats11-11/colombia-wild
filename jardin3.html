@@ -1,0 +1,2185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Colombia Wild</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* 
+GENERAL
+*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#041109;
+color:white;
+overflow-x:hidden;
+}
+
+/* Fondo */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+
+background:
+linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.93)),
+url("https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1920");
+
+background-size:cover;
+background-position:center;
+
+z-index:-1;
+}
+
+/* 
+NAVBAR
+*/
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 6%;
+
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(12px);
+
+z-index:9999;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#7dffaf;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#72ffae;
+}
+
+.translate-btn{
+padding:12px 20px;
+background:#00ff88;
+border:none;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+}
+
+/*
+HERO
+*/
+
+.hero{
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+text-align:center;
+padding:0 10%;
+}
+
+.hero h1{
+font-size:5rem;
+line-height:1.1;
+color:#7dffaf;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:900px;
+line-height:1.8;
+color:#ddd;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.hero-buttons a{
+padding:15px 28px;
+background:#00ff88;
+color:black;
+text-decoration:none;
+font-weight:700;
+border-radius:15px;
+}
+
+/*
+SECCIONES
+*/
+
+section{
+padding:120px 6%;
+}
+
+.section-title{
+text-align:center;
+font-size:3rem;
+color:#7dffaf;
+margin-bottom:20px;
+}
+
+.section-sub{
+text-align:center;
+max-width:900px;
+margin:auto;
+margin-bottom:50px;
+line-height:1.8;
+color:#ccc;
+}
+
+/*
+TARJETAS
+*/
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(8,25,15,.95);
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(0,255,128,.2);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,255,128,.25);
+}
+
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card-content h3{
+color:#7dffaf;
+margin-bottom:5px;
+}
+
+.scientific{
+font-style:italic;
+color:#aaa;
+display:block;
+margin-bottom:15px;
+}
+
+.card-content p{
+line-height:1.6;
+margin-bottom:10px;
+color:#ddd;
+}
+
+.tag{
+display:inline-block;
+padding:8px 14px;
+border-radius:12px;
+margin-top:10px;
+font-size:.8rem;
+font-weight:700;
+}
+
+.danger{
+background:#ff3155;
+}
+
+.safe{
+background:#00ff88;
+color:black;
+}
+
+/*
+REGIONES
+*/
+
+.region-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:50px;
+}
+
+.region-buttons button{
+padding:14px 24px;
+border:none;
+border-radius:14px;
+background:#00ff88;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.region-buttons button:hover{
+transform:scale(1.05);
+}
+
+.region-info{
+display:none;
+background:rgba(0,0,0,.6);
+padding:35px;
+border-radius:20px;
+max-width:1000px;
+margin:auto;
+line-height:1.8;
+}
+
+/*
+QUIZ
+*/
+
+.quiz-box{
+max-width:700px;
+margin:auto;
+background:rgba(0,0,0,.7);
+padding:40px;
+border-radius:20px;
+}
+
+.option{
+background:#123822;
+padding:15px;
+margin:15px 0;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+
+.option:hover{
+transform:scale(1.02);
+}
+
+/*
+DATOS
+*/
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.info-box{
+background:rgba(8,25,15,.95);
+padding:30px;
+border-radius:20px;
+border:1px solid rgba(0,255,128,.2);
+}
+
+.info-box h3{
+color:#7dffaf;
+margin-bottom:15px;
+}
+
+/*
+FOOTER
+*/
+
+footer{
+background:#020a05;
+padding:60px 10%;
+text-align:center;
+}
+
+/*
+RESPONSIVE
+*/
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:3rem;
+}
+
+nav{
+flex-direction:column;
+gap:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!--
+ NAVBAR
+ -->
+
+<nav>
+
+<div class="logo">COLOMBIA WILD</div>
+
+<ul>
+<li><a href="#regions" id="nav1">Regions</a></li>
+<li><a href="#animals" id="nav2">Animals</a></li>
+<li><a href="#quiz" id="nav3">Quiz</a></li>
+</ul>
+
+<button class="translate-btn" onclick="translatePage()">
+🌎 Translate
+</button>
+
+</nav>
+
+<!-- 
+ HERO
+-->
+
+<section class="hero">
+
+<h1 id="hero-title">
+ENDEMIC ANIMALS OF COLOMBIA
+</h1>
+
+<p id="hero-sub">
+Discover Colombia’s incredible biodiversity through endemic species and interactive scientific exploration.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#animals" id="btn1">
+Explore Animals
+</a>
+
+<a href="#quiz" id="btn2">
+Start Quiz
+</a>
+
+</div>
+
+</section>
+
+<!-- 
+ REGIONES
+ -->
+
+<section id="regions">
+
+<h2 class="section-title" id="regions-title">
+Natural Regions of Colombia
+</h2>
+
+<p class="section-sub" id="regions-sub">
+Explore the six natural regions of Colombia and their ecosystems.
+</p>
+
+<div class="region-buttons">
+
+<button onclick="showRegion('caribe')">Caribe</button>
+<button onclick="showRegion('andina')">Andina</button>
+<button onclick="showRegion('pacifica')">Pacifica</button>
+<button onclick="showRegion('amazonica')">Amazonica</button>
+<button onclick="showRegion('orinoquia')">Orinoquía</button>
+<button onclick="showRegion('insular')">Insular</button>
+
+</div>
+
+<div class="region-info" id="region-info"></div>
+
+</section>
+
+<!-- 
+ ANIMALES
+ -->
+
+<section id="animals">
+
+<h2 class="section-title" id="animals-title">
+Featured Endemic Species
+</h2>
+
+<p class="section-sub" id="animals-sub">
+Explore endemic Colombian species.
+</p>
+
+<div class="cards" id="animalCards"></div>
+
+</section>
+
+<!-- 
+ QUIZ
+ -->
+
+<section id="quiz">
+
+<div class="quiz-box">
+
+<h2 id="quiz-title">
+Interactive Quiz
+</h2>
+
+<h3 id="question"></h3>
+
+<div id="options"></div>
+
+<h2 id="score"></h2>
+
+</div>
+
+</section>
+
+<!-- 
+ DATOS CURIOSOS
+ -->
+
+<section>
+
+<h2 class="section-title" id="facts-title">
+Did You Know?
+</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>🌎 Biodiversidad</h3>
+<p id="fact1">
+*Colombia es el segundo país más biodiverso del mundo.<br>
+*En Colombia existen más de 56.000 especies registradas.<br>
+*El país tiene ecosistemas únicos como páramos, selvas tropicales, manglares y bosques nublados.<br>
+*Muchas especies colombianas son endémicas, lo que significa que no viven en ningún otro lugar del planeta.<br>
+*El Amazonas colombiano produce gran parte del oxígeno y regula el clima mundial.<br>
+</p>
+</div>
+
+<div class="info-box">
+<h3>🐦 Aves</h3>
+<p id="fact2">
+*Colombia es el país con más especies de aves en el mundo.<br>
+*Tiene más de 1.900 especies de aves registradas.<br>
+*Los colibríes pueden mover sus alas hasta 80 veces por segundo.<br>
+*Algunas aves colombianas ayudan a dispersar semillas y regenerar bosques.<br>
+*La Tangara Multicolor es considerada una de las aves más coloridas del planeta.<br>
+*El Cóndor de los Andes puede alcanzar hasta 3 metros de envergadura.<br>
+*Muchas aves del país solo viven en regiones específicas como la Sierra Nevada de Santa Marta.<br>
+</p>
+</div>
+
+<div class="info-box">
+<h3>🐸 Anfibios</h3>
+<p id="fact3">
+*Colombia es uno de los países con más especies de anfibios del mundo.<br>
+*Muchas ranas colombianas tienen colores brillantes para advertir que son venenosas.<br>
+*Las ranas de cristal tienen una piel tan transparente que permite ver algunos órganos internos.<br>
+*Los anfibios pueden absorber agua y oxígeno a través de su piel.<br>
+*Son extremadamente sensibles a la contaminación y al cambio climático.<br>
+*La Rana Dorada Venenosa es considerada uno de los animales más tóxicos del planeta.<br>
+*Los anfibios ayudan a controlar poblaciones de insectos y mantienen el equilibrio ecológico.<br>
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- 
+IMPORTANCIA ECOLOGICA
+ -->
+
+<section>
+
+<h2 class="section-title" id="eco-title">
+Ecological Importance
+</h2>
+
+<p class="section-sub" id="eco-sub">
+Endemic species help maintain ecosystem balance and biodiversity.
+</p>
+
+</section>
+
+<!--
+AMENAZAS
+-->
+
+<section>
+
+<h2 class="section-title" id="threats-title">
+Environmental Threats
+</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>🌳 Deforestación</h3>
+<p id="threat1">
+La tala de árboles y la destrucción de bosques afectan gravemente los hábitats naturales de muchas especies. Cuando los bosques desaparecen, animales como monos, aves y anfibios pierden su hogar, alimento y lugares de reproducción.
+</p>
+</div>
+
+<div class="info-box">
+<h3>🏭 Contaminación</h3>
+<p id="threat2">
+La contaminación del agua, el aire y el suelo perjudica a los ecosistemas. Los químicos, plásticos y desechos industriales contaminan ríos y selvas, afectando especialmente a peces, ranas y otras especies sensibles.
+</p>
+</div>
+
+<div class="info-box">
+<h3>🔥 Cambio climático</h3>
+<p id="threat3">
+El aumento de la temperatura y las alteraciones en las lluvias modifican los ecosistemas naturales. Muchas especies no logran adaptarse rápidamente a estos cambios, lo que puede provocar migraciones, disminución de poblaciones e incluso extinción.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!--
+CONSERVACION
+-->
+
+<section>
+
+<h2 class="section-title" id="cons-title">
+Conservation
+</h2>
+
+<p class="section-sub" id="cons-sub">
+Protected areas and environmental education are fundamental to preserving Colombian biodiversity.
+</p>
+
+</section>
+
+<!--
+REFERENCIAS
+-->
+
+<section>
+
+<h2 class="section-title" id="ref-title">
+Bibliographic References
+</h2>
+
+<div class="info-grid">
+
+<div class="info-box">
+
+<p id="refs">
+
+• Instituto Humboldt <br>
+• WWF Colombia <br>
+• National Geographic <br>
+• IUCN Red List <br>
+• Ministerio de Ambiente <br>
+• Encyclopedia of Life
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--
+     CONCLUSION
+-->
+
+<section>
+
+<h2 class="section-title" id="conclusion-title">
+Final Conclusion
+</h2>
+
+<p class="section-sub" id="conclusion-sub">
+Colombia’s biodiversity is one of the greatest natural treasures on Earth and must be protected for future generations.
+</p>
+
+</section>
+
+<!--
+FOOTER
+-->
+
+<footer>
+
+<h2 id="footer-title">
+Protect Colombia's Biodiversity
+</h2>
+
+<p id="footer-sub">
+Educational project inspired by Colombian endemic wildlife.
+</p>
+
+</footer>
+
+<script>
+
+/* 
+IDIOMA
+*/
+
+let currentLanguage = "en";
+
+/*
+INFORMACION REGIONES
+*/
+
+const regions = {
+
+caribe:{
+enTitle:"Caribbean Region",
+esTitle:"Región Caribe",
+
+enText:`
+The Caribbean Region is located in northern Colombia and is characterized by tropical forests, beaches, mangroves and warm climates. It is home to many endemic birds, amphibians and reptiles.
+`,
+
+esText:`
+La Región Caribe está ubicada al norte de Colombia y se caracteriza por bosques tropicales, playas, manglares y climas cálidos. Alberga numerosas aves, anfibios y reptiles endémicos.
+`
+},
+
+andina:{
+enTitle:"Andean Region",
+esTitle:"Región Andina",
+
+enText:`
+The Andean Region contains mountain ecosystems, cloud forests and páramos. It is the most populated region and has a great diversity of endemic mammals and birds.
+`,
+
+esText:`
+La Región Andina contiene ecosistemas montañosos, bosques nublados y páramos. Es la región más poblada y tiene gran diversidad de mamíferos y aves endémicas.
+`
+},
+
+pacifica:{
+enTitle:"Pacific Region",
+esTitle:"Región Pacífica",
+
+enText:`
+The Pacific Region is one of the rainiest places on Earth. It contains humid jungles and unique amphibians such as poison frogs.
+`,
+
+esText:`
+La Región Pacífica es una de las zonas más lluviosas del planeta. Contiene selvas húmedas y anfibios únicos como las ranas venenosas.
+`
+},
+
+amazonica:{
+enTitle:"Amazon Region",
+esTitle:"Región Amazónica",
+
+enText:`
+The Amazon Region contains dense rainforests, rivers and extraordinary biodiversity.
+`,
+
+esText:`
+La Región Amazónica contiene densas selvas, ríos y una biodiversidad extraordinaria.
+`
+},
+
+orinoquia:{
+enTitle:"Orinoquía Region",
+esTitle:"Región Orinoquía",
+
+enText:`
+The Orinoquía Region is known for plains, wetlands and savannas with diverse wildlife.
+`,
+
+esText:`
+La Región Orinoquía es conocida por sus llanuras, humedales y sabanas con gran diversidad de fauna.
+`
+},
+
+insular:{
+enTitle:"Insular Region",
+esTitle:"Región Insular",
+
+enText:`
+The Insular Region includes islands and coral ecosystems in the Caribbean and Pacific oceans.
+`,
+
+esText:`
+La Región Insular incluye islas y ecosistemas coralinos en los océanos Caribe y Pacífico.
+`
+}
+
+};
+
+/*
+MOSTRAR REGION
+*/
+
+function showRegion(region){
+
+const box = document.getElementById("region-info");
+
+box.style.display = "block";
+
+if(currentLanguage === "en"){
+
+box.innerHTML = `
+<h2>${regions[region].enTitle}</h2>
+<br>
+<p>${regions[region].enText}</p>
+`;
+
+}else{
+
+box.innerHTML = `
+<h2>${regions[region].esTitle}</h2>
+<br>
+<p>${regions[region].esText}</p>
+`;
+
+}
+
+}
+
+/*
+ANIMALES
+*/
+
+const animals = [
+
+/*
+REGIÓN CARIBE 
+*/
+
+{
+enName:"Cotton-top Tamarin",
+esName:"Tití Cabeciblanco",
+scientific:"Saguinus oedipus",
+image:"",
+enDesc:"Small endemic primate from northern Colombia.",
+esDesc:"Pequeño primate endémico del norte de Colombia.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Fruits and insects",
+dietES:"Frutas e insectos",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+},
+
+{
+enName:"Blue-winged Parrotlet",
+esName:"Cotorra Aliazul",
+scientific:"Pyrrhura viridicata",
+image:"",
+enDesc:"Rare endemic parrot from Colombia.",
+esDesc:"Loro endémico raro de Colombia.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Seeds and fruits",
+dietES:"Semillas y frutas",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Santa Marta Antpitta",
+esName:"Tororoi de Santa Marta",
+scientific:"Grallaria bangsi",
+image:"",
+enDesc:"Bird endemic to Sierra Nevada de Santa Marta.",
+esDesc:"Ave endémica de la Sierra Nevada de Santa Marta.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Santa Marta Wren",
+esName:"Cucarachero de Santa Marta",
+scientific:"Troglodytes monticola",
+image:"",
+enDesc:"Endemic bird from Santa Marta mountains.",
+esDesc:"Ave endémica de las montañas de Santa Marta.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Pedregosa Glass Frog",
+esName:"Rana de Cristal de la Pedregosa",
+scientific:"Ikakogi tayrona",
+image:"",
+enDesc:"Transparent endemic frog.",
+esDesc:"Rana transparente endémica.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Sierra Nevada Harlequin Frog",
+esName:"Rana Arlequín de la Sierra Nevada",
+scientific:"Atelopus carrikeri",
+image:"",
+enDesc:"Colorful endangered frog.",
+esDesc:"Colorida rana amenazada.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+},
+
+{
+enName:"Dahl's Toad-headed Turtle",
+esName:"Tortuga de Cabeza de Sapo de Dahl",
+scientific:"Mesoclemmys dahli",
+image:"",
+enDesc:"Rare Colombian turtle.",
+esDesc:"Extraña tortuga colombiana.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Aquatic animals",
+dietES:"Animales acuáticos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Santa Marta Tapeti",
+esName:"Tapeti de Santa Marta",
+scientific:"Sylvilagus sanctaemartae",
+image:"",
+enDesc:"Endemic rabbit species.",
+esDesc:"Conejo endémico.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Plants",
+dietES:"Plantas",
+statusEN:"Near Threatened",
+statusES:"Casi Amenazado",
+danger:true
+},
+
+{
+enName:"Sapphire-tailed Hummingbird",
+esName:"Colibrí de Cola de Zafiro",
+scientific:"Chrysuronia lilliae",
+image:"",
+enDesc:"Beautiful hummingbird endemic to Colombia.",
+esDesc:"Hermoso colibrí endémico.",
+locationEN:"Caribbean Region",
+locationES:"Región Caribe",
+dietEN:"Nectar",
+dietES:"Néctar",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+/*
+REGIÓN INSULAR
+*/
+
+{
+enName:"Malpelo Lizard",
+esName:"Lagarto Punteado de Malpelo",
+scientific:"Diploglossus millepunctatus",
+image:"",
+enDesc:"Island endemic reptile.",
+esDesc:"Reptil endémico insular.",
+locationEN:"Insular Region",
+locationES:"Región Insular",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Malpelo Land Crab",
+esName:"Cangrejo de Tierra de Malpelo",
+scientific:"Johngarthia malpilensis",
+image:"",
+enDesc:"Crab endemic to Malpelo island.",
+esDesc:"Cangrejo endémico de Malpelo.",
+locationEN:"Insular Region",
+locationES:"Región Insular",
+dietEN:"Organic matter",
+dietES:"Materia orgánica",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+/*
+REGIÓN ANDINA 
+*/
+
+{
+enName:"Gray Titi Monkey",
+esName:"Tití Gris",
+scientific:"Saguinus leucopus",
+image:"",
+enDesc:"Endemic monkey from Colombia.",
+esDesc:"Mono endémico colombiano.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Fruits and insects",
+dietES:"Frutas e insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Olinguito",
+esName:"Olinguito",
+scientific:"Bassaricyon neblina",
+image:"",
+enDesc:"Rare nocturnal mammal.",
+esDesc:"Extraño mamífero nocturno.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Fruits",
+dietES:"Frutas",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:false
+},
+
+{
+enName:"Colombian Chachalaca",
+esName:"Guacharaca Colombiana",
+scientific:"Ortalis columbiana",
+image:"",
+enDesc:"Bird endemic to Colombia.",
+esDesc:"Ave endémica colombiana.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Fruits and leaves",
+dietES:"Frutas y hojas",
+statusEN:"Least Concern",
+statusES:"Preocupación Menor",
+danger:false
+},
+
+{
+enName:"Cauca Guan",
+esName:"Pava Caucana",
+scientific:"Penelope perspicax",
+image:"",
+enDesc:"Threatened Colombian bird.",
+esDesc:"Ave colombiana amenazada.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Fruits",
+dietES:"Frutas",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Antioquia Brushfinch",
+esName:"Gorrión Montés de Antioquia",
+scientific:"Atlapetes blancae",
+image:"",
+enDesc:"Rare endemic bird.",
+esDesc:"Ave endémica rara.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Seeds",
+dietES:"Semillas",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+},
+
+{
+enName:"Bearded Helmetcrest",
+esName:"Chivito de los Páramos",
+scientific:"Oxypogon stuebelii",
+image:"",
+enDesc:"High mountain hummingbird.",
+esDesc:"Colibrí de alta montaña.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Nectar",
+dietES:"Néctar",
+statusEN:"Near Threatened",
+statusES:"Casi Amenazado",
+danger:true
+},
+
+{
+enName:"Black Inca",
+esName:"Inca Negro",
+scientific:"Coeligena prunellei",
+image:"",
+enDesc:"Endemic hummingbird species.",
+esDesc:"Especie endémica de colibrí.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Nectar",
+dietES:"Néctar",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Prince of Arcabuco",
+esName:"Príncipe de Arcabuco",
+scientific:"Coeligena orina",
+image:"",
+enDesc:"Very rare hummingbird.",
+esDesc:"Colibrí extremadamente raro.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Nectar",
+dietES:"Néctar",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+},
+
+{
+enName:"Mountain Grackle",
+esName:"Chango de Montaña",
+scientific:"Macroagelaius subalaris",
+image:"",
+enDesc:"Black endemic bird.",
+esDesc:"Ave negra endémica.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Magdalena Tapaculo",
+esName:"Tapaculo de Magdalena",
+scientific:"Scytalopus rodriguezi",
+image:"",
+enDesc:"Secretive bird endemic to Colombia.",
+esDesc:"Ave endémica difícil de observar.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Multicolored Tanager",
+esName:"Tangara Multicolor",
+scientific:"Chlorochrysa nitidissima",
+image:"",
+enDesc:"Colorful endemic bird.",
+esDesc:"Ave endémica muy colorida.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Fruits and insects",
+dietES:"Frutas e insectos",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Thick-headed Ground Snake",
+esName:"Serpiente de Tierra de Cabeza Gruesa",
+scientific:"Atractus crassicaudatus",
+image:"",
+enDesc:"Rare endemic snake.",
+esDesc:"Extraña serpiente endémica.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Worms",
+dietES:"Lombrices",
+statusEN:"Data Deficient",
+statusES:"Datos Insuficientes",
+danger:false
+},
+
+{
+enName:"Bogotá Lizard",
+esName:"Lagarto de Bogotá",
+scientific:"Anolis heterodermus",
+image:"",
+enDesc:"Andean endemic lizard.",
+esDesc:"Lagarto endémico andino.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Least Concern",
+statusES:"Preocupación Menor",
+danger:false
+},
+
+{
+enName:"Savanna Crab",
+esName:"Cangrejo Sabanero",
+scientific:"Neostrengeria macropa",
+image:"",
+enDesc:"Freshwater endemic crab.",
+esDesc:"Cangrejo endémico de agua dulce.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Organic matter",
+dietES:"Materia orgánica",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Chingaza Salamander",
+esName:"Salamandra de Chingaza",
+scientific:"Bolitoglossa capitana",
+image:"",
+enDesc:"Mountain salamander endemic to Colombia.",
+esDesc:"Salamandra de montaña endémica.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Magdalena Glass Frog",
+esName:"Rana de Cristal de Magdalena",
+scientific:"Centrolene savagei",
+image:"",
+enDesc:"Transparent Andean frog.",
+esDesc:"Rana transparente andina.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Medellín Short-eared Shrew",
+esName:"Musaraña de Orejas Cortas de Medellín",
+scientific:"Cryptotis medellinius",
+image:"",
+enDesc:"Tiny endemic mammal.",
+esDesc:"Pequeño mamífero endémico.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Data Deficient",
+statusES:"Datos Insuficientes",
+danger:false
+},
+
+{
+enName:"Magdalena Spiny Rat",
+esName:"Ratón Espinoso de Magdalena",
+scientific:"Proechimys magdalenae",
+image:"",
+enDesc:"Rodent endemic to Colombia.",
+esDesc:"Roedor endémico colombiano.",
+locationEN:"Andean Region",
+locationES:"Región Andina",
+dietEN:"Seeds and fruits",
+dietES:"Semillas y frutas",
+statusEN:"Least Concern",
+statusES:"Preocupación Menor",
+danger:false
+},
+
+/*
+REGIÓN PACÍFICA
+*/
+
+{
+enName:"Golden Poison Frog",
+esName:"Rana Dorada Venenosa",
+scientific:"Phyllobates terribilis",
+image:"",
+enDesc:"One of the most poisonous animals on Earth.",
+esDesc:"Uno de los animales más venenosos del planeta.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Small insects",
+dietES:"Pequeños insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Blue Anole",
+esName:"Lagarto Azul de Gorgona",
+scientific:"Anolis gorgonae",
+image:"",
+enDesc:"Bright blue endemic lizard.",
+esDesc:"Lagarto azul endémico.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Brown Spider Monkey",
+esName:"Mono Araña Colombiano",
+scientific:"Ateles fusciceps rufiventris",
+image:"",
+enDesc:"Endangered spider monkey.",
+esDesc:"Mono araña amenazado.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Fruits",
+dietES:"Frutas",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+},
+
+{
+enName:"Lehmann's Poison Frog",
+esName:"Rana Venenosa de Lehmann",
+scientific:"Oophaga lehmanni",
+image:"",
+enDesc:"Poison dart frog endemic to Colombia.",
+esDesc:"Rana venenosa endémica.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Ants and insects",
+dietES:"Hormigas e insectos",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+},
+
+{
+enName:"Chocolate Poison Frog",
+esName:"Rana Venenosa Achocolatada",
+scientific:"Oophaga histrionica",
+image:"",
+enDesc:"Poison frog from the Pacific.",
+esDesc:"Rana venenosa del Pacífico.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Emperor Tetra",
+esName:"Tetra Emperador",
+scientific:"Nematobrycon palmeri",
+image:"",
+enDesc:"Freshwater ornamental fish.",
+esDesc:"Pez ornamental de agua dulce.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Small aquatic organisms",
+dietES:"Pequeños organismos acuáticos",
+statusEN:"Least Concern",
+statusES:"Preocupación Menor",
+danger:false
+},
+
+{
+enName:"Chocó Rain Frog",
+esName:"Rana de Lluvia del Chocó",
+scientific:"Pristimantis chocoensis",
+image:"",
+enDesc:"Rainforest frog endemic to Chocó.",
+esDesc:"Rana selvática endémica del Chocó.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Gorgona Lizard",
+esName:"Lagartija de Gorgona",
+scientific:"Anolis medemi",
+image:"",
+enDesc:"Endemic island lizard.",
+esDesc:"Lagartija endémica insular.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Near Threatened",
+statusES:"Casi Amenazado",
+danger:true
+},
+
+{
+enName:"San José Glass Frog",
+esName:"Rana de Cristal de San José",
+scientific:"Cochranella nola",
+image:"",
+enDesc:"Transparent Pacific frog.",
+esDesc:"Rana transparente del Pacífico.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Pacific Leaf Frog",
+esName:"Rana de Hojarasca del Pacífico",
+scientific:"Craugastor longirostris",
+image:"",
+enDesc:"Leaf litter frog endemic to Colombia.",
+esDesc:"Rana de hojarasca endémica.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Blue Colombian Tarantula",
+esName:"Tarántula Azul de Colombia",
+scientific:"Chromatopelma cyaneopubescens",
+image:"",
+enDesc:"Bright blue tarantula.",
+esDesc:"Tarántula azul brillante.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Least Concern",
+statusES:"Preocupación Menor",
+danger:false
+},
+
+{
+enName:"Choco River Crab",
+esName:"Cangrejo de Río Chocoano",
+scientific:"Hypolobocera chocoensis",
+image:"",
+enDesc:"Freshwater crab from Chocó.",
+esDesc:"Cangrejo de río del Chocó.",
+locationEN:"Pacific Region",
+locationES:"Región Pacífica",
+dietEN:"Organic matter",
+dietES:"Materia orgánica",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+/*
+REGIÓN AMAZÓNICA
+*/
+
+{
+enName:"Caquetá Titi Monkey",
+esName:"Tití del Caquetá",
+scientific:"Plecturocebus caquetensis",
+image:"",
+enDesc:"Rare monkey endemic to Caquetá.",
+esDesc:"Mono raro endémico del Caquetá.",
+locationEN:"Amazon Region",
+locationES:"Región Amazónica",
+dietEN:"Fruits and leaves",
+dietES:"Frutas y hojas",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+},
+
+{
+enName:"Chiribiquete Emerald",
+esName:"Colibrí Esmeralda del Chiribiquete",
+scientific:"Chlorostilbon olivaresi",
+image:"",
+enDesc:"Rare hummingbird endemic to Chiribiquete.",
+esDesc:"Colibrí raro endémico del Chiribiquete.",
+locationEN:"Amazon Region",
+locationES:"Región Amazónica",
+dietEN:"Nectar",
+dietES:"Néctar",
+statusEN:"Data Deficient",
+statusES:"Datos Insuficientes",
+danger:false
+},
+
+{
+enName:"Chiribiquete Rock Toad",
+esName:"Sapo de las Rocas de Chiribiquete",
+scientific:"Rhinella nattereri",
+image:"",
+enDesc:"Amazonian endemic toad.",
+esDesc:"Sapo amazónico endémico.",
+locationEN:"Amazon Region",
+locationES:"Región Amazónica",
+dietEN:"Insects",
+dietES:"Insectos",
+statusEN:"Near Threatened",
+statusES:"Casi Amenazado",
+danger:true
+},
+
+{
+enName:"Hernández Night Monkey",
+esName:"Mico Nocturno de Hernández",
+scientific:"Aotus jorgehernandezi",
+image:"",
+enDesc:"Nocturnal monkey endemic to Colombia.",
+esDesc:"Mono nocturno endémico.",
+locationEN:"Amazon Region",
+locationES:"Región Amazónica",
+dietEN:"Fruits",
+dietES:"Frutas",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Inírida Discus Fish",
+esName:"Pez Disco de Inírida",
+scientific:"Symphysodon sp.",
+image:"",
+enDesc:"Colorful discus fish.",
+esDesc:"Colorido pez disco.",
+locationEN:"Amazon Region",
+locationES:"Región Amazónica",
+dietEN:"Aquatic organisms",
+dietES:"Organismos acuáticos",
+statusEN:"Least Concern",
+statusES:"Preocupación Menor",
+danger:false
+},
+
+/*
+REGIÓN ORINOQUÍA 
+*/
+
+{
+enName:"Ornate Titi",
+esName:"Tití Ornamentado",
+scientific:"Plecturocebus ornatus",
+image:"",
+enDesc:"Beautiful titi monkey.",
+esDesc:"Hermoso mono tití.",
+locationEN:"Orinoquía Region",
+locationES:"Región Orinoquía",
+dietEN:"Fruits",
+dietES:"Frutas",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+/*
+RÍO MAGDALENA Y CUENCAS
+*/
+
+{
+enName:"Magdalena Bocachico",
+esName:"Bocachico",
+scientific:"Prochilodus magdalenae",
+image:"",
+enDesc:"Important migratory fish.",
+esDesc:"Importante pez migratorio.",
+locationEN:"Magdalena River",
+locationES:"Río Magdalena",
+dietEN:"Algae",
+dietES:"Algas",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Magdalena Catfish",
+esName:"Bagre Rayado del Magdalena",
+scientific:"Pseudoplatystoma magdaleniatum",
+image:"",
+enDesc:"Large endemic catfish.",
+esDesc:"Gran bagre endémico.",
+locationEN:"Magdalena River",
+locationES:"Río Magdalena",
+dietEN:"Fish",
+dietES:"Peces",
+statusEN:"Vulnerable",
+statusES:"Vulnerable",
+danger:true
+},
+
+{
+enName:"Capaz Catfish",
+esName:"Capaz",
+scientific:"Pimelodus grosskopfii",
+image:"",
+enDesc:"Freshwater fish endemic to Colombia.",
+esDesc:"Pez de agua dulce endémico.",
+locationEN:"Magdalena Basin",
+locationES:"Cuenca Magdalena",
+dietEN:"Small fish",
+dietES:"Peces pequeños",
+statusEN:"Near Threatened",
+statusES:"Casi Amenazado",
+danger:true
+},
+
+{
+enName:"Magdalena River Turtle",
+esName:"Tortuga del Río Magdalena",
+scientific:"Podocnemis lewyana",
+image:"",
+enDesc:"Freshwater turtle endemic to Colombia.",
+esDesc:"Tortuga de agua dulce endémica.",
+locationEN:"Magdalena Basin",
+locationES:"Cuenca del Magdalena",
+dietEN:"Aquatic plants",
+dietES:"Plantas acuáticas",
+statusEN:"Endangered",
+statusES:"En Peligro",
+danger:true
+},
+
+{
+enName:"Magdalena Herring",
+esName:"Pez Arenca",
+scientific:"Triportheus magdalenae",
+image:"",
+enDesc:"Freshwater endemic fish.",
+esDesc:"Pez endémico de agua dulce.",
+locationEN:"Magdalena River",
+locationES:"Río Magdalena",
+dietEN:"Aquatic plants",
+dietES:"Plantas acuáticas",
+statusEN:"Near Threatened",
+statusES:"Casi Amenazado",
+danger:true
+},
+
+{
+enName:"Magdalena Knife Fish",
+esName:"Cuchilla del Magdalena",
+scientific:"Lasiancistrus caucanus",
+image:"",
+enDesc:"Rare freshwater fish.",
+esDesc:"Extraño pez de agua dulce.",
+locationEN:"Magdalena Basin",
+locationES:"Cuenca Magdalena",
+dietEN:"Algae",
+dietES:"Algas",
+statusEN:"Data Deficient",
+statusES:"Datos Insuficientes",
+danger:false
+},
+
+{
+enName:"Guavio Torrent Catfish",
+esName:"Bagre de Torrentes del Guavio",
+scientific:"Rhizosomichthys totae",
+image:"",
+enDesc:"Mountain river catfish.",
+esDesc:"Bagre de río montañoso.",
+locationEN:"Andean Rivers",
+locationES:"Ríos Andinos",
+dietEN:"Aquatic insects",
+dietES:"Insectos acuáticos",
+statusEN:"Critically Endangered",
+statusES:"En Peligro Crítico",
+danger:true
+}
+
+];
+
+/*
+GENERAR TARJETAS
+*/
+
+const animalCards = document.getElementById("animalCards");
+
+function renderAnimals(){
+
+animalCards.innerHTML = "";
+
+animals.forEach(animal=>{
+
+animalCards.innerHTML += `
+
+<div class="card">
+
+<img src="${animal.image}">
+
+<div class="card-content">
+
+<h3>
+${currentLanguage === "en"
+? animal.enName
+: animal.esName}
+</h3>
+
+<span class="scientific">
+${animal.scientific}
+</span>
+
+<p>
+${currentLanguage === "en"
+? animal.enDesc
+: animal.esDesc}
+</p>
+
+<p>
+<b>
+${currentLanguage === "en"
+? "Location:"
+: "Ubicación:"}
+</b>
+
+${currentLanguage === "en"
+? animal.locationEN
+: animal.locationES}
+</p>
+
+<p>
+<b>
+${currentLanguage === "en"
+? "Diet:"
+: "Alimentación:"}
+</b>
+
+${currentLanguage === "en"
+? animal.dietEN
+: animal.dietES}
+</p>
+
+<p>
+<b>
+${currentLanguage === "en"
+? "Status:"
+: "Estado:"}
+</b>
+
+${currentLanguage === "en"
+? animal.statusEN
+: animal.statusES}
+</p>
+
+<span class="tag ${animal.danger ? 'danger' : 'safe'}">
+
+${
+animal.danger
+?
+(currentLanguage === "en"
+? "⚠ Endangered"
+: "⚠ En Peligro")
+:
+(currentLanguage === "en"
+? "✔ Protected"
+: "✔ Protegido")
+}
+
+</span>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+renderAnimals();
+
+/*
+TRADUCTOR TOTAL
+*/
+
+function translatePage(){
+
+if(currentLanguage === "en"){
+
+currentLanguage = "es";
+
+document.getElementById("hero-title").innerHTML =
+"ANIMALES ENDÉMICOS DE COLOMBIA";
+
+document.getElementById("hero-sub").innerHTML =
+"Descubre la increíble biodiversidad de Colombia.";
+
+document.getElementById("regions-title").innerHTML =
+"Regiones Naturales de Colombia";
+
+document.getElementById("regions-sub").innerHTML =
+"Explora las seis regiones naturales de Colombia.";
+
+document.getElementById("animals-title").innerHTML =
+"Especies Endémicas";
+
+document.getElementById("animals-sub").innerHTML =
+"Explora especies endémicas colombianas.";
+
+document.getElementById("quiz-title").innerHTML =
+"Quiz Interactivo";
+
+document.getElementById("facts-title").innerHTML =
+"¿Sabías Qué?";
+
+document.getElementById("eco-title").innerHTML =
+"Importancia Ecológica";
+
+document.getElementById("eco-sub").innerHTML =
+"Las especies endémicas ayudan a mantener el equilibrio ecológico.";
+
+document.getElementById("threats-title").innerHTML =
+"Amenazas Ambientales";
+
+document.getElementById("cons-title").innerHTML =
+"Conservación";
+
+document.getElementById("cons-sub").innerHTML =
+"La educación ambiental y las áreas protegidas ayudan a conservar la biodiversidad.";
+
+document.getElementById("ref-title").innerHTML =
+"Referencias Bibliográficas";
+
+document.getElementById("conclusion-title").innerHTML =
+"Conclusión Final";
+
+document.getElementById("conclusion-sub").innerHTML =
+"La biodiversidad colombiana es uno de los mayores tesoros naturales del planeta.";
+
+document.getElementById("footer-title").innerHTML =
+"Protege la Biodiversidad Colombiana";
+
+document.getElementById("footer-sub").innerHTML =
+"Proyecto educativo inspirado en la fauna colombiana.";
+
+document.getElementById("nav1").innerHTML = "Regiones";
+document.getElementById("nav2").innerHTML = "Animales";
+document.getElementById("nav3").innerHTML = "Quiz";
+
+document.getElementById("btn1").innerHTML = "Explorar";
+document.getElementById("btn2").innerHTML = "Iniciar Quiz";
+
+}else{
+
+currentLanguage = "en";
+
+location.reload();
+
+}
+
+renderAnimals();
+
+}
+
+/*
+QUIZ
+*/
+
+
+const questions = [
+
+{
+questionEN:"Which animal is one of the most poisonous on Earth?",
+questionES:"¿Cuál animal es uno de los más venenosos del planeta?",
+optionsEN:[
+"Golden Poison Frog",
+"Jaguar",
+"Puma",
+"Eagle"
+],
+optionsES:[
+"Rana Dorada Venenosa",
+"Jaguar",
+"Puma",
+"Águila"
+],
+answerEN:"Golden Poison Frog",
+answerES:"Rana Dorada Venenosa"
+},
+
+{
+questionEN:"Which country has the most bird species in the world?",
+questionES:"¿Qué país tiene más especies de aves en el mundo?",
+optionsEN:[
+"Brazil",
+"Peru",
+"Colombia",
+"Mexico"
+],
+optionsES:[
+"Brasil",
+"Perú",
+"Colombia",
+"México"
+],
+answerEN:"Colombia",
+answerES:"Colombia"
+},
+
+{
+questionEN:"What region is the Tití Cabeciblanco from?",
+questionES:"¿De qué región es el Tití Cabeciblanco?",
+optionsEN:[
+"Amazon",
+"Pacific",
+"Caribbean",
+"Insular"
+],
+optionsES:[
+"Amazonía",
+"Pacífica",
+"Caribe",
+"Insular"
+],
+answerEN:"Caribbean",
+answerES:"Caribe"
+},
+
+{
+questionEN:"Which animal is endemic to Gorgona Island?",
+questionES:"¿Qué animal es endémico de la Isla Gorgona?",
+optionsEN:[
+"Blue Anole",
+"Tiger",
+"Capybara",
+"Condor"
+],
+optionsES:[
+"Lagarto Azul",
+"Tigre",
+"Capibara",
+"Cóndor"
+],
+answerEN:"Blue Anole",
+answerES:"Lagarto Azul"
+},
+
+{
+questionEN:"What do hummingbirds mainly eat?",
+questionES:"¿Qué comen principalmente los colibríes?",
+optionsEN:[
+"Fish",
+"Leaves",
+"Nectar",
+"Meat"
+],
+optionsES:[
+"Peces",
+"Hojas",
+"Néctar",
+"Carne"
+],
+answerEN:"Nectar",
+answerES:"Néctar"
+},
+
+{
+questionEN:"Why are amphibians important?",
+questionES:"¿Por qué son importantes los anfibios?",
+optionsEN:[
+"They control insects",
+"They make gold",
+"They destroy forests",
+"They pollute rivers"
+],
+optionsES:[
+"Controlan insectos",
+"Hacen oro",
+"Destruyen bosques",
+"Contaminan ríos"
+],
+answerEN:"They control insects",
+answerES:"Controlan insectos"
+},
+
+{
+questionEN:"Which threat affects forests the most?",
+questionES:"¿Qué amenaza afecta más a los bosques?",
+optionsEN:[
+"Deforestation",
+"Rain",
+"Wind",
+"Clouds"
+],
+optionsES:[
+"Deforestación",
+"Lluvia",
+"Viento",
+"Nubes"
+],
+answerEN:"Deforestation",
+answerES:"Deforestación"
+},
+
+{
+questionEN:"What is biodiversity?",
+questionES:"¿Qué es biodiversidad?",
+optionsEN:[
+"Variety of life",
+"Only plants",
+"Only animals",
+"Only water"
+],
+optionsES:[
+"Variedad de vida",
+"Solo plantas",
+"Solo animales",
+"Solo agua"
+],
+answerEN:"Variety of life",
+answerES:"Variedad de vida"
+},
+
+{
+questionEN:"Which ecosystem exists in Colombia?",
+questionES:"¿Qué ecosistema existe en Colombia?",
+optionsEN:[
+"Páramos",
+"Desert tundra",
+"Arctic plains",
+"Glacier forests"
+],
+optionsES:[
+"Páramos",
+"Tundra desértica",
+"Llanuras árticas",
+"Bosques glaciales"
+],
+answerEN:"Páramos",
+answerES:"Páramos"
+},
+
+{
+questionEN:"Why should endemic species be protected?",
+questionES:"¿Por qué deben protegerse las especies endémicas?",
+optionsEN:[
+"They are unique",
+"They are robots",
+"They live everywhere",
+"They are invasive"
+],
+optionsES:[
+"Son únicas",
+"Son robots",
+"Viven en todo el mundo",
+"Son invasoras"
+],
+answerEN:"They are unique",
+answerES:"Son únicas"
+}
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionElement =
+document.getElementById("question");
+
+const optionsElement =
+document.getElementById("options");
+
+const scoreElement =
+document.getElementById("score");
+
+function loadQuestion(){
+
+const q = questions[currentQuestion];
+
+questionElement.innerHTML =
+currentLanguage === "en"
+? q.questionEN
+: q.questionES;
+
+optionsElement.innerHTML = "";
+
+const options =
+currentLanguage === "en"
+? q.optionsEN
+: q.optionsES;
+
+const answer =
+currentLanguage === "en"
+? q.answerEN
+: q.answerES;
+
+options.forEach(option=>{
+
+const div = document.createElement("div");
+
+div.classList.add("option");
+
+div.innerHTML = option;
+
+div.onclick = ()=>{
+
+/* DESACTIVAR MÁS CLICKS */
+document.querySelectorAll(".option")
+.forEach(op=> op.style.pointerEvents="none");
+
+/* RESPUESTA CORRECTA */
+if(option === answer){
+
+div.style.background = "#00ff88";
+div.style.color = "black";
+
+div.innerHTML += " ✅";
+
+score++;
+
+}else{
+
+div.style.background = "#ff3155";
+
+div.innerHTML += " ❌";
+
+/* MOSTRAR CORRECTA */
+document.querySelectorAll(".option")
+.forEach(op=>{
+
+if(op.innerHTML.includes(answer)){
+
+op.style.background="#00ff88";
+op.style.color="black";
+
+}
+
+});
+
+}
+
+/* SIGUIENTE PREGUNTA */
+setTimeout(()=>{
+
+currentQuestion++;
+
+if(currentQuestion < questions.length){
+
+loadQuestion();
+
+}else{
+
+questionElement.innerHTML =
+currentLanguage === "en"
+? "🎉 Quiz Finished!"
+: "🎉 ¡Quiz Finalizado!";
+
+optionsElement.innerHTML = "";
+
+scoreElement.innerHTML =
+(currentLanguage === "en"
+? "Final Score: "
+: "Puntaje Final: ")
++
+score + "/" + questions.length;
+
+}
+
+},1800);
+
+};
+
+optionsElement.appendChild(div);
+
+});
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
